@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* ==========================================================================
+   SP
+   ========================================================================== */
+#maintitle img {
+  width: 100%; }
+
+#sponsor {
+  margin-top: 3.846vw; }
+
+/* ここまで */
+@media screen and (min-width: 780px) {
+  /***************************
+  
+    PC px
+  
+  *****************************/
+  /* Style adjustments for viewports that meet the condition */ }
+@media screen and (min-width: 1200px) {
+  /***************************
+    
+      PC vw
+    
+    *****************************/
+  /* Style adjustments for viewports that meet the condition */ }

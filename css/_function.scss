@@ -1,0 +1,163 @@
+@charset "utf-8";
+
+//var
+$contents_width: 1200px;
+
+$psd_width1: 780;
+$psd_width2: 1200;
+$psd_width3: 1920;
+
+$break_width1: 780px;
+$break_width2: 1200px;
+$break_width3: 1920px;
+
+
+$mainfont:  'Noto Serif JP', serif;
+$titlefont:  'Noto Serif JP', serif;
+$subfont:  'Hiragino Kaku Gothic Pro', sans-serif;
+$font_mix:  'Outfit',"Noto Sans JP","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,Osaka,sans-serif;
+$font_e:  'Outfit',sans-serif;
+ 
+$font_color: #000;
+$link_color: #000;
+$link_color_hover: #000;
+
+//category color
+$blue : #3261B4;
+$lightblue: #2fade2;
+$yellow : #F3F94F;
+$pink : #f19ec2;
+
+$orange: #fe951e;
+$green : #1E8A49;
+$lightgreen : #D0EDDF;
+
+$red : #a42e4e;
+          
+
+
+
+//// func
+// px -> vw 
+@function svw($value , $container:null){
+  @if($container == null){
+   @return round-decimal((( ($value * 1.2 ) / 600 ) * 100vw ),3);
+  }
+}
+// lineheight
+@function lh($value , $value2:null){
+   @return round-decimal((( $value / $value2 ) ),3);
+}
+
+// px -> vw  SP 
+@function sp($value , $container:null){
+  @if($container == null){
+   @return round-decimal((($value/$psd_width1)*100vw),3);
+  }@else{
+   @return round-decimal((($value/$psd_width1)*100vw),3);
+  }
+}
+
+// px -> vw@vhベース
+@function vh($value , $container:null){
+  @if($container == null){
+   @return round-decimal((($value/780)*100vh),3);
+  }@else{
+   @return round-decimal((($value/780)*100vh),3);
+  }
+}
+// px -> vw 768 - 1200
+@function px($value , $container:null){
+  @if($container == null){
+   @return round-decimal(($value * 1px),3);
+  }@else{
+   @return round-decimal(($value * 1px),3);
+  }
+}
+
+// px -> vw  // 1200 - 1440
+@function vw($value , $container:null){
+  @if($container == null){
+   @return round-decimal((($value/$psd_width2)*100vw),3);
+  }@else{
+   @return round-decimal((($value/$psd_width2)*100vw),3);
+  }
+}
+// px -> vw  // 1920
+@function wvw($value , $container:null){
+  @if($container == null){
+   @return round-decimal((($value/$psd_width3)*100vw),3);
+  }@else{
+   @return round-decimal((($value/$psd_width3)*100vw),3);
+  }
+}
+
+
+
+
+// Round (四捨五入)
+@function round-decimal ($number, $digits: 0) {
+    @return to-fixed($number, $digits, 'round');
+}
+
+// Ceil (切り上げ)
+@function ceil-decimal ($number, $digits: 0) {
+    @return to-fixed($number, $digits, 'ceil');
+}
+
+// Floor (切り捨て)
+@function floor-decimal ($number, $digits: 0) {
+    @return to-fixed($number, $digits, 'floor');
+}
+
+@function to-fixed ($number, $digits: 0, $round: 'round') {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+    @for $i from 1 through $digits {
+        $n: $n * 10;
+    }
+    @if $round == 'round' {
+        @return round($number * $n) / $n;
+    } @else if $round == 'ceil' {
+        @return ceil($number * $n) / $n;
+    } @else if $round == 'floor' {
+        @return floor($number * $n) / $n;
+    } @else {
+        @warn '#{ $round } is undefined keyword.';
+        @return $number;
+    }
+}
+
+// round-decimal(0.333)    => 0
+// round-decimal(0.333, 1) => 0.3
+// round-decimal(0.333, 2) => 0.33
+// round-decimal(0.666)    => 1
+// round-decimal(0.666, 1) => 0.7
+// round-decimal(0.666, 2) => 0.67
+
+// ceil-decimal(0.333)     => 1
+// ceil-decimal(0.333, 1)  => 0.4
+// ceil-decimal(0.333, 2)  => 0.34
+// ceil-decimal(0.666)     => 1
+// ceil-decimal(0.666, 1)  => 0.7
+// ceil-decimal(0.666, 2)  => 0.67
+
+// floor-decimal(0.333)    => 0
+// floor-decimal(0.333, 1) => 0.3
+// floor-decimal(0.333, 2) => 0.33
+// floor-decimal(0.666)    => 0
+// floor-decimal(0.666, 1) => 0.6
+// floor-decimal(0.666, 2) => 0.66
+

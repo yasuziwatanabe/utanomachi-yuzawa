@@ -1,0 +1,1124 @@
+@charset "utf-8";
+@import "_function.scss";
+
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+
+html {
+  color: $font_color;
+  font-size: 1em;
+  line-height: 1.6;
+  font-family: $mainfont;
+  background-color: #000;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #000;
+  text-shadow: none;
+}
+
+::selection {
+  background: #000;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+  .pc-item{display: none;}
+  .sp-item{display: block;}
+
+  h1, h2, h3, h4, h5{
+    font-weight: normal;
+  }
+
+.btn{text-align: center; margin: sp(30) 0;
+ a{display: inline-block; padding: sp(15) sp(30); background-color: $red; font-size: sp(30); line-height: 1; border: 4px solid #000;
+  &:link{color: #fff;}
+}
+}
+
+  //ローディング部分の回転エフェクト定義
+@-webkit-keyframes loading {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@keyframes loading {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+  //ローディング画面の背景部分
+#loading {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500; }
+
+//ローディング回転部分
+#loading-main:after, #loading-main:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-left: -50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 110%; }
+
+#loading-main {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 105; }
+  #loading-main:after {
+    -webkit-animation: loading 0.75s linear infinite;
+    animation: loading 0.75s linear infinite;
+    border: 2px solid transparent;
+    border-top-color: #F5F5F5; }
+  #loading-main:before {
+    border: 2px solid #1D77E2; }
+
+.noscroll{
+  overflow: hidden;
+}
+
+a{display: inline-block; cursor: pointer; text-decoration: none;}
+a:link{color:$red;}
+a:visited{color:$red;}
+
+.wrapper{position: relative;}
+  .rightmenu{position: fixed; top: pc(0); right: sp(0); z-index: 200;
+    .mainnav{color:#fff; padding: 0; margin: -11.5em 0 0 sp(-150); position: absolute; top: 50%; left: 50%;
+        li{list-style: none; padding: 0; margin: 0; letter-spacing: 0.4em; font-size: sp(30); line-height:3.5; text-align: center; position: relative;
+        a{display: block; text-decoration: none; color: #fff;}
+      }
+    }
+    
+  }
+
+
+  /* チェックボックスを非表示にする */
+.drawer_hidden {
+  display: none;
+}
+
+/* ハンバーガーアイコンの設置スペース */
+.drawer_open {
+  display: flex;
+  width: sp(90);
+  height: sp(90);
+	top: sp(15);
+	right: sp(15);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 510;/* 重なり順を一番上にする */
+  cursor: pointer;
+  background-color: #000;
+  border-radius:  50%;
+}
+
+/* ハンバーガーメニューのアイコン */
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+  content: '';
+  display: block;
+  height: sp(6);
+  width: sp(60);
+  border-radius:  sp(2);
+  background: #fff;
+  transition: 0.5s;
+  position: absolute;
+}
+
+/* 三本線の一番上の棒の位置調整 */
+.drawer_open span:before {
+  bottom: sp(16);
+}
+
+/* 三本線の一番下の棒の位置調整 */
+.drawer_open span:after {
+  top: sp(16);
+}
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer_input:checked ~ .drawer_open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer_input:checked ~ .drawer_open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#drawer_input:checked ~ .drawer_open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+  
+/* メニューのデザイン*/
+.nav_content_bg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: $red;
+  transition: 0.5s;
+  opacity: 0;
+  display: none;
+}
+
+
+
+/* メニュー黒ポチを消す */
+.nav_list {list-style: none; font-size: sp(18); line-height: 3; font-weight: 700; color: #fff; letter-spacing: 0.4em;
+	li{text-align: center;
+		a{text-decoration: none; color: #fff; cursor:pointer;}
+		a:hover{opacity:.5;transition: .5s;}
+	}
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked ~ .nav_content_bg {
+  width: 100%;
+  height: 100vh;
+	position: fixed;
+  top: 0;
+  right: 0;
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
+  animation: fadeIn 0.5s ease-in 0s forwards;
+}
+
+.nav_content {position: fixed;
+width: 100%;
+  height: 100%;
+	top:0;
+	left:0;
+	pointer-events:none;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 449;
+}
+
+#drawer_input:checked ~ .nav_content {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	pointer-events: auto;
+	opacity: 1;
+	transition: 0.5s;
+	z-index: 449;
+  animation: fadeIn 0.5s ease-in 0s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+
+/* ここまで */
+
+body{position: relative;}
+
+  #header {display: none;}
+  
+  #kv{height: sp(960); background-image: url("../img/kv-bg@sp.jpg"); background-position: center top; background-size: cover; position: relative; overflow: hidden;
+    h1{text-indent: sp(-9999); width: sp(197); height: sp(598); background: url("../img/kv-logos.png"); background-repeat: no-repeat; background-size: auto 100% ; position: absolute; top:sp(24); left:sp(35)}
+    .mark{width: sp(476);height: sp(482); position: absolute; top:sp(77); left:sp(248); position: relative; z-index: 100;
+      &:before{content: ''; display: block; width: sp(320); height: sp(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:sp(20); left:sp(-96); z-index: -10;}
+      &:after{content: ''; display: block; width: sp(390); height: sp(74); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:sp(47); left:sp(250); z-index: 150;}
+      img{width: 100%;}
+    }
+    .badge{width: sp(212);height: sp(212); position: absolute; z-index: 160; top:sp(400); right:sp(12);
+      img{width: 100%;} 
+    }
+    .catch{position: absolute; bottom:sp(53); left:sp(100); font-size: sp(32); font-weight: 700; color: #fff; letter-spacing: sp(8);
+      span{background-color: #000; padding:sp(4) sp(20);  margin-bottom:sp(5);  display: inline-block;}
+    }
+  }
+
+
+.pagetop{display: none; position: fixed; bottom:  sp(12); right:  sp(12); z-index: 1000;
+    a{display: block; width: sp(40); height: sp(40); height:auto;
+      img{width: 100%;}
+    }
+  }
+
+
+  #footer{position:relative; background-color: #000; padding: sp(35) 0; height: auto; font-family: $subfont; color: #fff;
+    .wrap{padding: 0 sp(40);
+        .mainnav{color:#fff; margin-bottom: sp(30); display: none;
+            ul{ padding: 0; margin: 0; text-align: center; font-size: 0;
+              li{display: inline-block; list-style: none; letter-spacing: 0.1em; font-size: sp(24); line-height:  1.8; border-right: sp(1) solid #fff; padding:0 sp(10); margin-bottom:  sp(10);
+              &:first-child{ border-left: sp(1) solid #fff;}
+              &:nth-child(6){ border-left: sp(1) solid #fff;}
+              a{display: block; text-decoration: none; color: #fff;}
+            }
+          }
+          }
+      .f-name{font-family: $titlefont; font-size: sp(36); letter-spacing: 0.1em; font-weight: 700; margin-bottom: sp(25); text-align: center;}
+      .f-info{ margin-bottom: sp(30); text-align: center;
+        .address{font-size: sp(24);}
+      }
+      .copyright{font-size: sp(24); text-align: center;}
+        }
+    
+  }
+
+  main{min-width: auto; background: url("../img/main-bg@sp.jpg") repeat-y; overflow: hidden;}
+
+section{padding: sp(60) 0 sp(30); font-size: sp(32);
+  .inner{z-index: 10; position: relative; padding: 0 sp(40);}
+  h2{font-size: sp(40); font-weight: 700; letter-spacing: sp(10); text-align: center; color:#000; margin: 0 0 sp(30) 0; padding:0; line-height: 1;
+  }
+}
+
+#tankakai{height: sp(373); background: url("../img/tankakai-bg@sp.jpg") no-repeat top center; background-size: cover; position: relative;
+  ul{width: sp(700); margin: 0 auto;
+    li{list-style: none;
+      a{display: block;
+        img{width:100%;}
+      }
+      }
+  }
+  
+  
+}
+
+#information{position: relative;
+  .inner{
+    dl{position: relative; z-index: 110;
+      dt{ font-size: sp(28); font-weight: 700;}
+      dd{ margin-bottom: sp(30);
+      &:last-child{margin-bottom: sp(0);}
+      }
+    }
+  }
+  
+  &:before{content: ''; display: block; width: sp(320); height: sp(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:sp(-50); left:sp(-60); }
+  &:after{content: ''; display: block; width: sp(390); height: sp(74); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:sp(30); right:sp(-120);}
+
+}
+
+#about{padding: sp(0) 0; color: #fff;  position: relative;
+  &:before{content: ''; display: block; width: sp(320); height: sp(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:sp(300); left:sp(40); z-index: 100;}
+  &:after{content: ''; display: block; width: sp(390); height: sp(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:sp(70); right:sp(-120); z-index: 100;}
+  .inner{padding-top: sp(160); padding-bottom: sp(460); background: url("../img/about-bg@sp.jpg") repeat-y; -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    h2{color: #fff; margin-bottom: sp(60);}
+  }
+  .img01{width: sp(444); height: sp(518); position: absolute; bottom:sp(-20); left: sp(184); z-index: 110;
+    img{width: 100%;}
+  } 
+}
+
+#yuzawa{margin-top: sp(-140); padding: sp(0) 0; color: #fff;  position: relative;
+  &:before{content: ''; display: block; width: sp(320); height: sp(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:sp(150); left:sp(30); z-index: 100;}
+  &:after{content: ''; display: block; width: sp(390); height: sp(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:sp(160); right:sp(-120); z-index: 100;}
+  .inner{padding-top: sp(240); padding-bottom: sp(590); background: url("../img/yuzawa-bg@sp.jpg") repeat-y; -webkit-clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%); clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%);
+    h2{color: #fff; margin-bottom: sp(60);}
+  }
+  .img01{width: sp(476); height: sp(523); position: absolute; bottom:sp(40); left: sp(207); z-index: 110;
+    img{width: 100%;}
+  } 
+}
+
+#sponsor{margin-top: sp(-220); padding: sp(0) 0; color: #fff;  position: relative;
+  &:after{content: ''; display: block; width: sp(390); height: sp(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:sp(180); right:sp(-130); z-index: 100;}
+  .inner{padding-top: sp(240); padding-bottom: sp(60); background: url("../img/sponsor-bg@sp.jpg") repeat-y; -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    h2{color: #fff; margin-bottom: sp(60);}
+  }
+  .img01{width: sp(476); height: sp(523); position: absolute; bottom:sp(0); left: sp(207); z-index: 110;
+    img{width: 100%;}
+  }
+  ul.supporterlist{margin-top: sp(60); z-index: 1100;
+    li{list-style: none; margin-bottom: sp(20);
+      a {display: block;
+        img{width:100%;}
+      }
+    }
+  }
+}
+
+
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+
+@media screen and (min-width: $break_width1 ){
+    /***************************
+    
+      PC
+    
+    *****************************/
+  /* Style adjustments for viewports that meet the condition */
+  
+  .sp-item{display: none;}
+  .pc-item{display: block;}
+
+  a{transition: 0.5s ;
+    &:hover{opacity: 0.3 ;}
+  }
+
+
+  body {
+    min-width: px(1200);
+  }
+
+  .wrapper{ width: auto;}
+
+  .rightmenu{display: none; position: fixed; top: 0; right: 0; z-index: 200;
+
+    .mainnav{color:#fff; padding: 0; margin: px(-180) 0 0 px(-290); position: absolute; top: 50%; left: 50%;
+        li{list-style: none; padding: 0; margin: 0; letter-spacing: px(15); font-size: px(30); line-height:  px(100);
+        a{display: block; text-decoration: none; color: #fff;}
+      }
+    }
+
+  }
+
+
+  /* チェックボックスを非表示にする */
+.drawer_hidden {
+  display: none;
+}
+
+
+/* ここまで */
+
+  #header {display: block; width: 100%; height: px(66); position:relative; background-color: $red;
+    .logo{width: px(250); height: px(66); background-color: #000; position: absolute; top:px(0); left:px(0); z-index: 100; margin: 0; padding: 0; font-size:px(1);
+      img{width: 100%;}
+    }
+    ul.mainnav{display: block; position: absolute; top:px(24); left:px(300); width: auto; z-index: 1100; display: flex;
+      li{list-style: none; color: #fff; font-size:px(16); font-weight: 700; padding: 0; margin-right:px(50);  line-height: 1; letter-spacing: px(3); position: relative;
+        &:after{content:''; background-image: url("../img/head-list.png"); background-size: cover; width: px(21); height: px(13);position: absolute; top: px(3); left: px(-26);}
+        a:link{color:#fff;}
+      }
+    }
+
+  }
+  
+  #kv{height: px(550); background-image: url("../img/kv-bg@pc.jpg"); background-position: center top; background-size: cover; position: relative; overflow: hidden;
+    h1{text-indent: px(-9999); width: px(157); height: px(471); background: url("../img/kv-logos.png"); background-repeat: no-repeat; background-size: auto 100% ; position: absolute; top:px(25); left:px(107)}
+    .mark{width: px(476);height: px(482); position: absolute; top:px(31); left:px(357); position: relative; z-index: 100;
+      &:before{content: ''; display: block; width: px(320); height: px(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:px(20); left:px(-150); z-index: -10;}
+      &:after{content: ''; display: block; width: px(390); height: px(74); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:px(30); left:px(250); z-index: 150;}
+      img{width: 100%;}
+    }
+    .badge{width: px(212);height: px(212); position: absolute; z-index: 160; top:px(320); right:px(287);
+      img{width: 100%;} 
+    }
+    .catch{position: absolute; bottom:auto; top:px(44); left:px(947); font-size: px(19); font-weight: 700; letter-spacing: px(8); -ms-writing-mode: tb-rl; writing-mode: vertical-rl; z-index: 1200;
+      span{background-color: #000; padding:px(10) px(6);  margin-bottom:px(0);margin-left:px(10);  display: inline-block;}
+    }
+  }
+
+  
+.pagetop{display: block; position: fixed; bottom: px(25); right: px(25);
+    a{display: block; width: px(80); height: px(80); height:auto;
+      img{width: 100%;}
+    }
+  }
+
+  main{min-width: 1200px;}
+  
+  #footer{position:relative; background-color: #000; padding: px(35) 0; height: auto; font-family: $subfont; color: #fff;
+    .wrap{padding: 0 px(40);
+        .mainnav{color:#fff; margin-bottom: px(30);
+            ul{ padding: 0; margin: 0; text-align: center; font-size: 0;
+              li{display: inline-block; list-style: none; letter-spacing: 0.1em; font-size: px(24); line-height:  1.8; border-right: px(1) solid #fff; padding:0 px(10); margin-bottom:  px(10);
+              &:first-child{ border-left: px(1) solid #fff;}
+              &:nth-child(6){ border-left: px(1) solid #fff;}
+              a{display: block; text-decoration: none; color: #fff;}
+            }
+          }
+          }
+      .f-name{font-family: $titlefont; font-size: px(16); letter-spacing: 0.1em; font-weight: 700; margin-bottom: px(25); text-align: center;}
+      .f-info{ margin-bottom: px(30); text-align: center;
+        .address{font-size: px(14);}
+      }
+      .copyright{font-size: px(12); text-align: center;}
+        }
+    
+  }
+
+  main{min-width: auto; background: url("../img/main-bg@pc.jpg") repeat-y; background-size: 100% auto; overflow: hidden;}
+
+section{padding: px(60) 0 px(30); font-size: px(16);
+  .inner{z-index: 10; position: relative; padding: 0 px(40);}
+  h2{font-size: px(40); font-weight: 700; letter-spacing: px(10); text-align: center; color:#000; margin: 0 0 px(30) 0; padding:0; line-height: 1;
+  }
+}
+
+#tankakai{height: auto; padding-bottom: px(60);  background: url("../img/tankakai-bg@pc.jpg") no-repeat top center; background-size: cover; position: relative;
+  ul{width: px(700); margin: 0 auto;
+    li{list-style: none;
+      a{
+        img{width:100%;}
+      }
+      
+    }
+  }
+  
+  
+}
+
+#information{position: relative; padding: px(60) 0 px(60) 0;
+  .inner{
+    dl{width: px(960); margin: 0 auto; position: relative; z-index: 110; display: flex; flex-wrap: wrap;
+      dt{ font-size: px(16); font-weight: 700; width: 15%;}
+      dd{ margin-bottom: px(16); width: 85%;
+      &:last-child{margin-bottom: px(0);}
+      }
+    }
+  }
+    &:before{content: ''; display: block; width: px(320); height: px(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:px(-40); left:px(-80); }
+    &:after{content: ''; display: block; width: px(390); height: px(74); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:px(30); right:px(-80);}
+  
+}
+
+#about{padding: px(0) 0; color: #fff;  position: relative;
+  &:before{content: ''; display: block; width: px(320); height: px(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:px(120); left:px(230); z-index: 100;}
+  &:after{content: ''; display: block; width: px(390); height: px(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:px(70); right:px(-160); z-index: 100;}
+  .inner{height: px(640); padding-top: px(0); padding-bottom: px(0); background: url("../img/about-bg@pc.jpg") repeat-y; -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); background-size: 100% auto; position: relative;
+    h2{color: #fff; margin-bottom: px(40); -ms-writing-mode: tb-rl; writing-mode: vertical-rl; position: absolute; top: px(120); right: px(160);}
+    p.mainlead{ -ms-writing-mode: tb-rl; writing-mode: vertical-rl; letter-spacing: px(8); line-height: 2; max-height:px(430); position: absolute; top: px(120); right: px(270);}
+  }
+  .img01{width: px(444); height: px(518); position: absolute; bottom:px(90); left: px(50); z-index: 110;
+    img{width: 100%;}
+  } 
+}
+
+#yuzawa{margin-top: px(-140); padding: px(0) 0; color: #fff;  position: relative;
+  &:before{content: ''; display: block; width: px(320); height: px(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:px(150); left:px(30); z-index: 100;}
+  &:after{content: ''; display: block; width: px(390); height: px(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:px(160); right:px(-120); z-index: 100;}
+  .inner{padding-top: px(240); padding-bottom: px(590); background: url("../img/yuzawa-bg@pc.jpg") repeat-y; background-size: 100%; -webkit-clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%); clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
+    h2{color: #fff; -ms-writing-mode: tb-rl; writing-mode: vertical-rl; position: absolute; top: px(100); left: px(200);}
+    p.mainlead{ -ms-writing-mode: tb-rl; writing-mode: vertical-rl; letter-spacing: px(8); line-height: 2; max-height:px(430); position: absolute; top: px(150); right: px(600);}
+  }
+  .img01{width: px(476); height: px(523); position: absolute; bottom:px(140); left: px(650); z-index: 110;
+    img{width: 100%;}
+  } 
+}
+
+#sponsor{margin-top: px(-250); padding: px(0) 0; color: #fff;  position: relative;
+  &:before{content: ''; display: block; width: px(320); height: px(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:px(400); left:px(-90); z-index: 100;}
+  &:after{content: ''; display: block; width: px(390); height: px(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute;  top:auto; bottom:px(100); right:px(-150); z-index: 100;}
+  .inner{padding-top: px(100); padding-bottom: px(60); background: url("../img/sponsor-bg@sp.jpg") repeat-y; background-size: 100% auto; -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    h2{color: #fff; margin-bottom: px(60);}
+  }
+  .mainlead{width: px(960); margin: 0 auto;}
+  ul.supporterlist{width: px(700); margin: px(60) auto; display: flex; justify-content: space-between; flex-wrap: wrap;
+    li{list-style: none; margin-bottom: px(20); width: px(340);
+      a {display: block;
+        img{width:100%;}
+      }
+    }
+  }
+}
+  
+  
+  
+}
+
+@media screen and (min-width: 1200px ){
+
+    /***************************
+    
+      PC - vw
+    
+    *****************************/
+  /* Style adjustments for viewports that meet the condition */
+  
+  .sp-item{display: none;}
+  .pc-item{display: block;}
+
+
+  .wrapper{width: 100%;}
+
+  .rightmenu{display: none; position: fixed; top: 0; right: 0; z-index: 200;
+
+    .mainnav{color:#fff; padding: 0; margin: vw(-180) 0 0 vw(-290); position: absolute; top: 50%; left: 50%;
+        li{list-style: none; padding: 0; margin: 0; letter-spacing: vw(15); font-size: vw(30); line-height:  vw(100);
+        a{display: block; text-decoration: none; color: #fff;}
+      }
+    }
+
+  }
+
+
+  /* チェックボックスを非表示にする */
+.drawer_hidden {
+  display: none;
+}
+
+/* ハンバーガーアイコンの設置スペース */
+.drawer_open {
+  display: flex;
+  width: vw(58);
+  height: vw(50);
+	top:0;
+	right:0;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 510;/* 重なり順を一番上にする */
+  cursor: pointer;
+}
+
+/* ハンバーガーメニューのアイコン */
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+  content: '';
+  display: block;
+  height: vw(2);
+  width: vw(28);
+  border-radius:  vw(2);
+  background: #fff;
+  transition: 0.5s;
+  position: absolute;
+}
+
+/* 三本線の一番上の棒の位置調整 */
+.drawer_open span:before {
+  bottom: vw(5);
+}
+
+/* 三本線の一番下の棒の位置調整 */
+.drawer_open span:after {
+  top: vw(5);
+}
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer_input:checked ~ .drawer_open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer_input:checked ~ .drawer_open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#drawer_input:checked ~ .drawer_open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+  
+/* メニューのデザイン*/
+.nav_content_bg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #1D77E2;
+  transition: 0.5s;
+  opacity: 0;
+  display: none;
+}
+
+
+
+/* メニュー黒ポチを消す */
+.nav_list {list-style: none;font-size: 30px; line-height: 3; font-weight: 700; color: #fff; letter-spacing: 0.4em;
+	li{text-align: center;
+		a{text-decoration: none; color: #fff; cursor:pointer;}
+		a:hover{opacity:.5;transition: .5s;}
+	}
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked ~ .nav_content_bg {
+  width: 100%;
+  height: 100vh;
+	position: fixed;
+  top: 0;
+  right: 0;
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
+  animation: fadeIn 0.5s ease-in 0s forwards;
+}
+
+.nav_content {position: fixed;
+width: 100%;
+  height: 100%;
+	top:0;
+	left:0;
+	pointer-events:none;
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 449;
+}
+
+#drawer_input:checked ~ .nav_content {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	pointer-events: auto;
+	opacity: 1;
+	transition: 0.5s;
+	z-index: 449;
+  animation: fadeIn 0.5s ease-in 0s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+
+/* ここまで */
+
+  #header {display: block; width: 100%; height: vw(66); position:relative; background-color: $red;
+    .logo{width: vw(250); height: vw(66); background-color: #000; position: absolute; top:vw(0); left:vw(0); z-index: 100; margin: 0; padding: 0; font-size:vw(1);
+      img{width: 100%;}
+    }
+    ul.mainnav{display: block; position: absolute; top:vw(24); left:vw(300); width: auto; z-index: 1100; display: flex;
+      li{list-style: none; color: #fff; font-size:vw(16); font-weight: 700; padding: 0; margin-right:vw(50);  line-height: 1; letter-spacing: vw(3); position: relative;
+        &:after{content:''; background-image: url("../img/head-list.png"); background-size: cover; width: vw(21); height: vw(13);position: absolute; top: vw(3); left: vw(-26);}
+      }
+    }
+  
+
+  }
+  
+  #kv{height: vw(550); background-image: url("../img/kv-bg@pc.jpg"); background-position: center top; background-size: cover; position: relative; overflow: hidden;
+    h1{text-indent: vw(-9999); width: vw(157); height: vw(471); background: url("../img/kv-logos.png"); background-repeat: no-repeat; background-size: auto 100% ; position: absolute; top:vw(25); left:vw(107)}
+    .mark{width: vw(476);height: vw(482); position: absolute; top:vw(31); left:vw(357); position: relative; z-index: 100;
+      &:before{content: ''; display: block; width: vw(320); height: vw(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:vw(20); left:vw(-150); z-index: -10;}
+      &:after{content: ''; display: block; width: vw(390); height: vw(74); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:vw(30); left:vw(250); z-index: 150;}
+      img{width: 100%;}
+    }
+    .badge{width: vw(212);height: vw(212); position: absolute; z-index: 160; top:vw(320); right:vw(287);
+      img{width: 100%;} 
+    }
+    .catch{position: absolute; bottom:auto; top:vw(44); left:vw(947); font-size: vw(19); font-weight: 700; letter-spacing: vw(8); -ms-writing-mode: tb-rl; writing-mode: vertical-rl; z-index: 1200;
+      span{background-color: #000; padding:vw(10) vw(6);  margin-bottom:vw(0);margin-left:vw(10);  display: inline-block;}
+    }
+  }
+
+  
+.pagetop{position: fixed; bottom: vw(25); right: vwx(25);
+    a{display: block; width: vw(80); height: vw(80); height:auto;
+      img{width: 100%;}
+    }
+  }
+ 
+ 
+
+
+    #footer{position:relative; background-color: #000; padding: vw(35) 0; height: auto; font-family: $subfont; color: #fff;
+    .wrap{padding: 0 vw(40);
+        .mainnav{color:#fff; margin-bottom: vw(30);
+            ul{ padding: 0; margin: 0; text-align: center; font-size: 0;
+              li{display: inline-block; list-style: none; letter-spacing: 0.1em; font-size: vw(24); line-height:  1.8; border-right: vw(1) solid #fff; padding:0 vw(10); margin-bottom:  vw(10);
+              &:first-child{ border-left: vw(1) solid #fff;}
+              &:nth-child(6){ border-left: vw(1) solid #fff;}
+              a{display: block; text-decoration: none; color: #fff;}
+            }
+          }
+          }
+      .f-name{font-family: $titlefont; font-size: vw(16); letter-spacing: 0.1em; font-weight: 700; margin-bottom: vw(25); text-align: center;}
+      .f-info{ margin-bottom: vw(30); text-align: center;
+        .address{font-size: vw(14);}
+      }
+      .copyright{font-size: vw(12); text-align: center;}
+        }
+    
+  }
+
+  main{min-width: auto; background: url("../img/main-bg@pc.jpg") repeat-y; background-size: 100% auto; overflow: hidden;}
+
+section{padding: vw(60) 0 vw(30); font-size: vw(16);
+  .inner{z-index: 10; position: relative; padding: 0 vw(40);}
+  h2{font-size: vw(40); font-weight: 700; letter-spacing: vw(10); text-align: center; color:#000; margin: 0 0 vw(30) 0; padding:0; line-height: 1;
+  }
+}
+
+#tankakai{height: auto; padding-bottom: vw(60);  background: url("../img/tankakai-bg@pc.jpg") no-repeat top center; background-size: cover; position: relative;
+  ul{width: vw(700); margin: 0 auto;
+    li{list-style: none;
+      a{
+        img{width:100%;}
+      }
+      
+    }
+  }
+  
+  
+}
+
+#information{position: relative; padding: vw(60) 0 vw(60) 0;
+  .inner{
+    dl{width: vw(960); margin: 0 auto; position: relative; z-index: 110; display: flex; flex-wrap: wrap;
+      dt{ font-size: vw(16); font-weight: 700; width: 15%;}
+      dd{ margin-bottom: vw(16); width: 85%;
+      &:last-child{margin-bottom: vw(0);}
+      }
+    }
+  }
+    &:before{content: ''; display: block; width: vw(320); height: vw(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:vw(-40); left:vw(-80); }
+    &:after{content: ''; display: block; width: vw(390); height: vw(74); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:vw(30); right:vw(-80);}
+  
+}
+
+#about{padding: vw(0) 0; color: #fff;  position: relative;
+  &:before{content: ''; display: block; width: vw(320); height: vw(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:vw(120); left:vw(230); z-index: 100;}
+  &:after{content: ''; display: block; width: vw(390); height: vw(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:vw(70); right:vw(-160); z-index: 100;}
+  .inner{height: vw(640); padding-top: vw(0); padding-bottom: vw(0); background: url("../img/about-bg@pc.jpg") repeat-y; -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%); background-size: 100% auto; position: relative;
+    h2{color: #fff; margin-bottom: vw(40); -ms-writing-mode: tb-rl; writing-mode: vertical-rl; position: absolute; top: vw(120); right: vw(160);}
+    p.mainlead{ -ms-writing-mode: tb-rl; writing-mode: vertical-rl; letter-spacing: vw(8); line-height: 2; max-height:vw(430); position: absolute; top: vw(120); right: vw(270);}
+  }
+  .img01{width: vw(444); height: vw(518); position: absolute; bottom:vw(90); left: vw(50); z-index: 110;
+    img{width: 100%;}
+  } 
+}
+
+#yuzawa{margin-top: vw(-140); padding: vw(0) 0; color: #fff;  position: relative;
+  &:before{content: ''; display: block; width: vw(320); height: vw(111); background-image: url(../img/kv-kumo01.png); background-size: contain; position:absolute; bottom:vw(150); left:vw(30); z-index: 100;}
+  &:after{content: ''; display: block; width: vw(390); height: vw(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; top:vw(160); right:vw(-120); z-index: 100;}
+  .inner{padding-top: vw(240); padding-bottom: vw(590); background: url("../img/yuzawa-bg@pc.jpg") repeat-y; background-size: 100%; -webkit-clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%); clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
+    h2{color: #fff; -ms-writing-mode: tb-rl; writing-mode: vertical-rl; position: absolute; top: vw(100); left: vw(200);}
+    p.mainlead{ -ms-writing-mode: tb-rl; writing-mode: vertical-rl; letter-spacing: vw(8); line-height: 2; max-height:vw(430); position: absolute; top: vw(150); right: vw(600);}
+  }
+  .img01{width: vw(476); height: vw(523); position: absolute; bottom:vw(140); left: vw(650); z-index: 110;
+    img{width: 100%;}
+  } 
+}
+
+#sponsor{margin-top: vw(-250); padding: vw(0) 0; color: #fff;  position: relative;
+  &:before{content: ''; display: block; width: vw(390); height: vw(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute; bottom:vw(450); left:vw(-170); z-index: 100;}
+  &:after{content: ''; display: block; width: vw(390); height: vw(90); background-image: url(../img/kv-kumo02.png); background-size: contain; position:absolute;  top:auto; bottom:vw(100); right:vw(-150); z-index: 100;}
+  .inner{padding-top: vw(100); padding-bottom: vw(60); background: url("../img/sponsor-bg@sp.jpg") repeat-y; background-size: 100% auto; -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    h2{color: #fff; margin-bottom: vw(60);}
+  }
+  .mainlead{width: vw(960); margin: 0 auto;}
+  ul.supporterlist{width: vw(700); margin: vw(60) auto; display: flex; justify-content: space-between; flex-wrap: wrap;
+    li{list-style: none; margin-bottom: vw(20); width: vw(340);
+      a {display: block;
+        img{width:100%;}
+      }
+    }
+  }
+}
+  
+    
+}
+
+@media screen and (min-width: 1921px ){
+
+}
+
+
+
+
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+} 
+.clearfix:before {
+  content: "";
+  display: block;
+  clear: both;
+} 
+.clearfix {
+  display: block;
+}
+

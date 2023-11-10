@@ -1,0 +1,1932 @@
+@charset "UTF-8";
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html {
+  color: #000;
+  font-size: 1em;
+  line-height: 1.6;
+  font-family: "Noto Serif JP", serif;
+  background-color: #000; }
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #000;
+  text-shadow: none; }
+
+::selection {
+  background: #000;
+  text-shadow: none; }
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle; }
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0; }
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical; }
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+.pc-item {
+  display: none; }
+
+.sp-item {
+  display: block; }
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal; }
+
+.btn {
+  text-align: center;
+  margin: 3.846vw 0; }
+  .btn a {
+    display: inline-block;
+    padding: 1.923vw 3.846vw;
+    background-color: #a42e4e;
+    font-size: 3.846vw;
+    line-height: 1;
+    border: 4px solid #000; }
+    .btn a:link {
+      color: #fff; }
+
+@-webkit-keyframes loading {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@keyframes loading {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+#loading {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500; }
+
+#loading-main:after, #loading-main:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-left: -50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 110%; }
+
+#loading-main {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 105; }
+
+#loading-main:after {
+  -webkit-animation: loading 0.75s linear infinite;
+  animation: loading 0.75s linear infinite;
+  border: 2px solid transparent;
+  border-top-color: #F5F5F5; }
+
+#loading-main:before {
+  border: 2px solid #1D77E2; }
+
+.noscroll {
+  overflow: hidden; }
+
+a {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none; }
+
+a:link {
+  color: #a42e4e; }
+
+a:visited {
+  color: #a42e4e; }
+
+.wrapper {
+  position: relative; }
+
+.rightmenu {
+  position: fixed;
+  top: pc(0);
+  right: 0vw;
+  z-index: 200; }
+  .rightmenu .mainnav {
+    color: #fff;
+    padding: 0;
+    margin: -11.5em 0 0 -19.231vw;
+    position: absolute;
+    top: 50%;
+    left: 50%; }
+    .rightmenu .mainnav li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      letter-spacing: 0.4em;
+      font-size: 3.846vw;
+      line-height: 3.5;
+      text-align: center;
+      position: relative; }
+      .rightmenu .mainnav li a {
+        display: block;
+        text-decoration: none;
+        color: #fff; }
+
+/* チェックボックスを非表示にする */
+.drawer_hidden {
+  display: none; }
+
+/* ハンバーガーアイコンの設置スペース */
+.drawer_open {
+  display: flex;
+  width: 11.538vw;
+  height: 11.538vw;
+  top: 1.923vw;
+  right: 1.923vw;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 510;
+  /* 重なり順を一番上にする */
+  cursor: pointer;
+  background-color: #000;
+  border-radius: 50%; }
+
+/* ハンバーガーメニューのアイコン */
+.drawer_open span,
+.drawer_open span:before,
+.drawer_open span:after {
+  content: '';
+  display: block;
+  height: 0.769vw;
+  width: 7.692vw;
+  border-radius: 0.256vw;
+  background: #fff;
+  transition: 0.5s;
+  position: absolute; }
+
+/* 三本線の一番上の棒の位置調整 */
+.drawer_open span:before {
+  bottom: 2.051vw; }
+
+/* 三本線の一番下の棒の位置調整 */
+.drawer_open span:after {
+  top: 2.051vw; }
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer_input:checked ~ .drawer_open span {
+  background: rgba(255, 255, 255, 0); }
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer_input:checked ~ .drawer_open span::before {
+  bottom: 0;
+  transform: rotate(45deg); }
+
+#drawer_input:checked ~ .drawer_open span::after {
+  top: 0;
+  transform: rotate(-45deg); }
+
+/* メニューのデザイン*/
+.nav_content_bg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: #a42e4e;
+  transition: 0.5s;
+  opacity: 0;
+  display: none; }
+
+/* メニュー黒ポチを消す */
+.nav_list {
+  list-style: none;
+  font-size: 2.308vw;
+  line-height: 3;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.4em; }
+  .nav_list li {
+    text-align: center; }
+    .nav_list li a {
+      text-decoration: none;
+      color: #fff;
+      cursor: pointer; }
+    .nav_list li a:hover {
+      opacity: .5;
+      transition: .5s; }
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer_input:checked ~ .nav_content_bg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
+  animation: fadeIn 0.5s ease-in 0s forwards; }
+
+.nav_content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 449; }
+
+#drawer_input:checked ~ .nav_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+  opacity: 1;
+  transition: 0.5s;
+  z-index: 449;
+  animation: fadeIn 0.5s ease-in 0s forwards; }
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0; }
+  1% {
+    display: block;
+    opacity: 0; }
+  100% {
+    display: block;
+    opacity: 1; } }
+/* ここまで */
+body {
+  position: relative; }
+
+#header {
+  display: none; }
+
+#kv {
+  height: 123.077vw;
+  background-image: url("../img/kv-bg@sp.jpg");
+  background-position: center top;
+  background-size: cover;
+  position: relative;
+  overflow: hidden; }
+  #kv h1 {
+    text-indent: -1281.923vw;
+    width: 25.256vw;
+    height: 76.667vw;
+    background: url("../img/kv-logos.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    position: absolute;
+    top: 3.077vw;
+    left: 4.487vw; }
+  #kv .mark {
+    width: 61.026vw;
+    height: 61.795vw;
+    position: absolute;
+    top: 9.872vw;
+    left: 31.795vw;
+    position: relative;
+    z-index: 100; }
+    #kv .mark:before {
+      content: '';
+      display: block;
+      width: 41.026vw;
+      height: 14.231vw;
+      background-image: url(../img/kv-kumo01.png);
+      background-size: contain;
+      position: absolute;
+      bottom: 2.564vw;
+      left: -12.308vw;
+      z-index: -10; }
+    #kv .mark:after {
+      content: '';
+      display: block;
+      width: 50vw;
+      height: 9.487vw;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: 6.026vw;
+      left: 32.051vw;
+      z-index: 150; }
+    #kv .mark img {
+      width: 100%; }
+  #kv .badge {
+    width: 27.179vw;
+    height: 27.179vw;
+    position: absolute;
+    z-index: 160;
+    top: 51.282vw;
+    right: 1.538vw; }
+    #kv .badge img {
+      width: 100%; }
+  #kv .catch {
+    position: absolute;
+    bottom: 6.795vw;
+    left: 12.821vw;
+    font-size: 4.103vw;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1.026vw; }
+    #kv .catch span {
+      background-color: #000;
+      padding: 0.513vw 2.564vw;
+      margin-bottom: 0.641vw;
+      display: inline-block; }
+
+.pagetop {
+  display: none;
+  position: fixed;
+  bottom: 1.538vw;
+  right: 1.538vw;
+  z-index: 1000; }
+  .pagetop a {
+    display: block;
+    width: 5.128vw;
+    height: 5.128vw;
+    height: auto; }
+    .pagetop a img {
+      width: 100%; }
+
+#footer {
+  position: relative;
+  background-color: #000;
+  padding: 4.487vw 0;
+  height: auto;
+  font-family: "Hiragino Kaku Gothic Pro", sans-serif;
+  color: #fff; }
+  #footer .wrap {
+    padding: 0 5.128vw; }
+    #footer .wrap .mainnav {
+      color: #fff;
+      margin-bottom: 3.846vw;
+      display: none; }
+      #footer .wrap .mainnav ul {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-size: 0; }
+        #footer .wrap .mainnav ul li {
+          display: inline-block;
+          list-style: none;
+          letter-spacing: 0.1em;
+          font-size: 3.077vw;
+          line-height: 1.8;
+          border-right: 0.128vw solid #fff;
+          padding: 0 1.282vw;
+          margin-bottom: 1.282vw; }
+          #footer .wrap .mainnav ul li:first-child {
+            border-left: 0.128vw solid #fff; }
+          #footer .wrap .mainnav ul li:nth-child(6) {
+            border-left: 0.128vw solid #fff; }
+          #footer .wrap .mainnav ul li a {
+            display: block;
+            text-decoration: none;
+            color: #fff; }
+    #footer .wrap .f-name {
+      font-family: "Noto Serif JP", serif;
+      font-size: 4.615vw;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 3.205vw;
+      text-align: center; }
+    #footer .wrap .f-info {
+      margin-bottom: 3.846vw;
+      text-align: center; }
+      #footer .wrap .f-info .address {
+        font-size: 3.077vw; }
+    #footer .wrap .copyright {
+      font-size: 3.077vw;
+      text-align: center; }
+
+main {
+  min-width: auto;
+  background: url("../img/main-bg@sp.jpg") repeat-y;
+  overflow: hidden; }
+
+section {
+  padding: 7.692vw 0 3.846vw;
+  font-size: 4.103vw; }
+  section .inner {
+    z-index: 10;
+    position: relative;
+    padding: 0 5.128vw; }
+  section h2 {
+    font-size: 5.128vw;
+    font-weight: 700;
+    letter-spacing: 1.282vw;
+    text-align: center;
+    color: #000;
+    margin: 0 0 3.846vw 0;
+    padding: 0;
+    line-height: 1; }
+
+#tankakai {
+  height: 47.821vw;
+  background: url("../img/tankakai-bg@sp.jpg") no-repeat top center;
+  background-size: cover;
+  position: relative; }
+  #tankakai ul {
+    width: 89.744vw;
+    margin: 0 auto; }
+    #tankakai ul li {
+      list-style: none; }
+      #tankakai ul li a {
+        display: block; }
+        #tankakai ul li a img {
+          width: 100%; }
+
+#information {
+  position: relative; }
+  #information .inner dl {
+    position: relative;
+    z-index: 110; }
+    #information .inner dl dt {
+      font-size: 3.59vw;
+      font-weight: 700; }
+    #information .inner dl dd {
+      margin-bottom: 3.846vw; }
+      #information .inner dl dd:last-child {
+        margin-bottom: 0vw; }
+  #information:before {
+    content: '';
+    display: block;
+    width: 41.026vw;
+    height: 14.231vw;
+    background-image: url(../img/kv-kumo01.png);
+    background-size: contain;
+    position: absolute;
+    bottom: -6.41vw;
+    left: -7.692vw; }
+  #information:after {
+    content: '';
+    display: block;
+    width: 50vw;
+    height: 9.487vw;
+    background-image: url(../img/kv-kumo02.png);
+    background-size: contain;
+    position: absolute;
+    top: 3.846vw;
+    right: -15.385vw; }
+
+#about {
+  padding: 0vw 0;
+  color: #fff;
+  position: relative; }
+  #about:before {
+    content: '';
+    display: block;
+    width: 41.026vw;
+    height: 14.231vw;
+    background-image: url(../img/kv-kumo01.png);
+    background-size: contain;
+    position: absolute;
+    bottom: 38.462vw;
+    left: 5.128vw;
+    z-index: 100; }
+  #about:after {
+    content: '';
+    display: block;
+    width: 50vw;
+    height: 11.538vw;
+    background-image: url(../img/kv-kumo02.png);
+    background-size: contain;
+    position: absolute;
+    top: 8.974vw;
+    right: -15.385vw;
+    z-index: 100; }
+  #about .inner {
+    padding-top: 20.513vw;
+    padding-bottom: 58.974vw;
+    background: url("../img/about-bg@sp.jpg") repeat-y;
+    -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); }
+    #about .inner h2 {
+      color: #fff;
+      margin-bottom: 7.692vw; }
+  #about .img01 {
+    width: 56.923vw;
+    height: 66.41vw;
+    position: absolute;
+    bottom: -2.564vw;
+    left: 23.59vw;
+    z-index: 110; }
+    #about .img01 img {
+      width: 100%; }
+
+#yuzawa {
+  margin-top: -17.949vw;
+  padding: 0vw 0;
+  color: #fff;
+  position: relative; }
+  #yuzawa:before {
+    content: '';
+    display: block;
+    width: 41.026vw;
+    height: 14.231vw;
+    background-image: url(../img/kv-kumo01.png);
+    background-size: contain;
+    position: absolute;
+    bottom: 19.231vw;
+    left: 3.846vw;
+    z-index: 100; }
+  #yuzawa:after {
+    content: '';
+    display: block;
+    width: 50vw;
+    height: 11.538vw;
+    background-image: url(../img/kv-kumo02.png);
+    background-size: contain;
+    position: absolute;
+    top: 20.513vw;
+    right: -15.385vw;
+    z-index: 100; }
+  #yuzawa .inner {
+    padding-top: 30.769vw;
+    padding-bottom: 75.641vw;
+    background: url("../img/yuzawa-bg@sp.jpg") repeat-y;
+    -webkit-clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 10%, 100% 100%, 0% 100%); }
+    #yuzawa .inner h2 {
+      color: #fff;
+      margin-bottom: 7.692vw; }
+  #yuzawa .img01 {
+    width: 61.026vw;
+    height: 67.051vw;
+    position: absolute;
+    bottom: 5.128vw;
+    left: 26.538vw;
+    z-index: 110; }
+    #yuzawa .img01 img {
+      width: 100%; }
+
+#sponsor {
+  margin-top: -28.205vw;
+  padding: 0vw 0;
+  color: #fff;
+  position: relative; }
+  #sponsor:after {
+    content: '';
+    display: block;
+    width: 50vw;
+    height: 11.538vw;
+    background-image: url(../img/kv-kumo02.png);
+    background-size: contain;
+    position: absolute;
+    top: 23.077vw;
+    right: -16.667vw;
+    z-index: 100; }
+  #sponsor .inner {
+    padding-top: 30.769vw;
+    padding-bottom: 7.692vw;
+    background: url("../img/sponsor-bg@sp.jpg") repeat-y;
+    -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); }
+    #sponsor .inner h2 {
+      color: #fff;
+      margin-bottom: 7.692vw; }
+  #sponsor .img01 {
+    width: 61.026vw;
+    height: 67.051vw;
+    position: absolute;
+    bottom: 0vw;
+    left: 26.538vw;
+    z-index: 110; }
+    #sponsor .img01 img {
+      width: 100%; }
+  #sponsor ul.supporterlist {
+    margin-top: 7.692vw;
+    z-index: 1100; }
+    #sponsor ul.supporterlist li {
+      list-style: none;
+      margin-bottom: 2.564vw; }
+      #sponsor ul.supporterlist li a {
+        display: block; }
+        #sponsor ul.supporterlist li a img {
+          width: 100%; }
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Hide visually and from screen readers
+ */
+.hidden,
+[hidden] {
+  display: none !important; }
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */ }
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto; }
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden; }
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table; }
+
+.clearfix::after {
+  clear: both; }
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@media screen and (min-width: 780px) {
+  /***************************
+  
+    PC
+  
+  *****************************/
+  /* Style adjustments for viewports that meet the condition */
+  .sp-item {
+    display: none; }
+
+  .pc-item {
+    display: block; }
+
+  a {
+    transition: 0.5s; }
+    a:hover {
+      opacity: 0.3; }
+
+  body {
+    min-width: 1200px; }
+
+  .wrapper {
+    width: auto; }
+
+  .rightmenu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200; }
+    .rightmenu .mainnav {
+      color: #fff;
+      padding: 0;
+      margin: -180px 0 0 -290px;
+      position: absolute;
+      top: 50%;
+      left: 50%; }
+      .rightmenu .mainnav li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        letter-spacing: 15px;
+        font-size: 30px;
+        line-height: 100px; }
+        .rightmenu .mainnav li a {
+          display: block;
+          text-decoration: none;
+          color: #fff; }
+
+  /* チェックボックスを非表示にする */
+  .drawer_hidden {
+    display: none; }
+
+  /* ここまで */
+  #header {
+    display: block;
+    width: 100%;
+    height: 66px;
+    position: relative;
+    background-color: #a42e4e; }
+    #header .logo {
+      width: 250px;
+      height: 66px;
+      background-color: #000;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 100;
+      margin: 0;
+      padding: 0;
+      font-size: 1px; }
+      #header .logo img {
+        width: 100%; }
+    #header ul.mainnav {
+      display: block;
+      position: absolute;
+      top: 24px;
+      left: 300px;
+      width: auto;
+      z-index: 1100;
+      display: flex; }
+      #header ul.mainnav li {
+        list-style: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 0;
+        margin-right: 50px;
+        line-height: 1;
+        letter-spacing: 3px;
+        position: relative; }
+        #header ul.mainnav li:after {
+          content: '';
+          background-image: url("../img/head-list.png");
+          background-size: cover;
+          width: 21px;
+          height: 13px;
+          position: absolute;
+          top: 3px;
+          left: -26px; }
+        #header ul.mainnav li a:link {
+          color: #fff; }
+
+  #kv {
+    height: 550px;
+    background-image: url("../img/kv-bg@pc.jpg");
+    background-position: center top;
+    background-size: cover;
+    position: relative;
+    overflow: hidden; }
+    #kv h1 {
+      text-indent: -9999px;
+      width: 157px;
+      height: 471px;
+      background: url("../img/kv-logos.png");
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      position: absolute;
+      top: 25px;
+      left: 107px; }
+    #kv .mark {
+      width: 476px;
+      height: 482px;
+      position: absolute;
+      top: 31px;
+      left: 357px;
+      position: relative;
+      z-index: 100; }
+      #kv .mark:before {
+        content: '';
+        display: block;
+        width: 320px;
+        height: 111px;
+        background-image: url(../img/kv-kumo01.png);
+        background-size: contain;
+        position: absolute;
+        bottom: 20px;
+        left: -150px;
+        z-index: -10; }
+      #kv .mark:after {
+        content: '';
+        display: block;
+        width: 390px;
+        height: 74px;
+        background-image: url(../img/kv-kumo02.png);
+        background-size: contain;
+        position: absolute;
+        top: 30px;
+        left: 250px;
+        z-index: 150; }
+      #kv .mark img {
+        width: 100%; }
+    #kv .badge {
+      width: 212px;
+      height: 212px;
+      position: absolute;
+      z-index: 160;
+      top: 320px;
+      right: 287px; }
+      #kv .badge img {
+        width: 100%; }
+    #kv .catch {
+      position: absolute;
+      bottom: auto;
+      top: 44px;
+      left: 947px;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+      z-index: 1200; }
+      #kv .catch span {
+        background-color: #000;
+        padding: 10px 6px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+        display: inline-block; }
+
+  .pagetop {
+    display: block;
+    position: fixed;
+    bottom: 25px;
+    right: 25px; }
+    .pagetop a {
+      display: block;
+      width: 80px;
+      height: 80px;
+      height: auto; }
+      .pagetop a img {
+        width: 100%; }
+
+  main {
+    min-width: 1200px; }
+
+  #footer {
+    position: relative;
+    background-color: #000;
+    padding: 35px 0;
+    height: auto;
+    font-family: "Hiragino Kaku Gothic Pro", sans-serif;
+    color: #fff; }
+    #footer .wrap {
+      padding: 0 40px; }
+      #footer .wrap .mainnav {
+        color: #fff;
+        margin-bottom: 30px; }
+        #footer .wrap .mainnav ul {
+          padding: 0;
+          margin: 0;
+          text-align: center;
+          font-size: 0; }
+          #footer .wrap .mainnav ul li {
+            display: inline-block;
+            list-style: none;
+            letter-spacing: 0.1em;
+            font-size: 24px;
+            line-height: 1.8;
+            border-right: 1px solid #fff;
+            padding: 0 10px;
+            margin-bottom: 10px; }
+            #footer .wrap .mainnav ul li:first-child {
+              border-left: 1px solid #fff; }
+            #footer .wrap .mainnav ul li:nth-child(6) {
+              border-left: 1px solid #fff; }
+            #footer .wrap .mainnav ul li a {
+              display: block;
+              text-decoration: none;
+              color: #fff; }
+      #footer .wrap .f-name {
+        font-family: "Noto Serif JP", serif;
+        font-size: 16px;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        margin-bottom: 25px;
+        text-align: center; }
+      #footer .wrap .f-info {
+        margin-bottom: 30px;
+        text-align: center; }
+        #footer .wrap .f-info .address {
+          font-size: 14px; }
+      #footer .wrap .copyright {
+        font-size: 12px;
+        text-align: center; }
+
+  main {
+    min-width: auto;
+    background: url("../img/main-bg@pc.jpg") repeat-y;
+    background-size: 100% auto;
+    overflow: hidden; }
+
+  section {
+    padding: 60px 0 30px;
+    font-size: 16px; }
+    section .inner {
+      z-index: 10;
+      position: relative;
+      padding: 0 40px; }
+    section h2 {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: 10px;
+      text-align: center;
+      color: #000;
+      margin: 0 0 30px 0;
+      padding: 0;
+      line-height: 1; }
+
+  #tankakai {
+    height: auto;
+    padding-bottom: 60px;
+    background: url("../img/tankakai-bg@pc.jpg") no-repeat top center;
+    background-size: cover;
+    position: relative; }
+    #tankakai ul {
+      width: 700px;
+      margin: 0 auto; }
+      #tankakai ul li {
+        list-style: none; }
+        #tankakai ul li a img {
+          width: 100%; }
+
+  #information {
+    position: relative;
+    padding: 60px 0 60px 0; }
+    #information .inner dl {
+      width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 110;
+      display: flex;
+      flex-wrap: wrap; }
+      #information .inner dl dt {
+        font-size: 16px;
+        font-weight: 700;
+        width: 15%; }
+      #information .inner dl dd {
+        margin-bottom: 16px;
+        width: 85%; }
+        #information .inner dl dd:last-child {
+          margin-bottom: 0px; }
+    #information:before {
+      content: '';
+      display: block;
+      width: 320px;
+      height: 111px;
+      background-image: url(../img/kv-kumo01.png);
+      background-size: contain;
+      position: absolute;
+      bottom: -40px;
+      left: -80px; }
+    #information:after {
+      content: '';
+      display: block;
+      width: 390px;
+      height: 74px;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: 30px;
+      right: -80px; }
+
+  #about {
+    padding: 0px 0;
+    color: #fff;
+    position: relative; }
+    #about:before {
+      content: '';
+      display: block;
+      width: 320px;
+      height: 111px;
+      background-image: url(../img/kv-kumo01.png);
+      background-size: contain;
+      position: absolute;
+      bottom: 120px;
+      left: 230px;
+      z-index: 100; }
+    #about:after {
+      content: '';
+      display: block;
+      width: 390px;
+      height: 90px;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: 70px;
+      right: -160px;
+      z-index: 100; }
+    #about .inner {
+      height: 640px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      background: url("../img/about-bg@pc.jpg") repeat-y;
+      -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      background-size: 100% auto;
+      position: relative; }
+      #about .inner h2 {
+        color: #fff;
+        margin-bottom: 40px;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        position: absolute;
+        top: 120px;
+        right: 160px; }
+      #about .inner p.mainlead {
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        letter-spacing: 8px;
+        line-height: 2;
+        max-height: 430px;
+        position: absolute;
+        top: 120px;
+        right: 270px; }
+    #about .img01 {
+      width: 444px;
+      height: 518px;
+      position: absolute;
+      bottom: 90px;
+      left: 50px;
+      z-index: 110; }
+      #about .img01 img {
+        width: 100%; }
+
+  #yuzawa {
+    margin-top: -140px;
+    padding: 0px 0;
+    color: #fff;
+    position: relative; }
+    #yuzawa:before {
+      content: '';
+      display: block;
+      width: 320px;
+      height: 111px;
+      background-image: url(../img/kv-kumo01.png);
+      background-size: contain;
+      position: absolute;
+      bottom: 150px;
+      left: 30px;
+      z-index: 100; }
+    #yuzawa:after {
+      content: '';
+      display: block;
+      width: 390px;
+      height: 90px;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: 160px;
+      right: -120px;
+      z-index: 100; }
+    #yuzawa .inner {
+      padding-top: 240px;
+      padding-bottom: 590px;
+      background: url("../img/yuzawa-bg@pc.jpg") repeat-y;
+      background-size: 100%;
+      -webkit-clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
+      clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%); }
+      #yuzawa .inner h2 {
+        color: #fff;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        position: absolute;
+        top: 100px;
+        left: 200px; }
+      #yuzawa .inner p.mainlead {
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        letter-spacing: 8px;
+        line-height: 2;
+        max-height: 430px;
+        position: absolute;
+        top: 150px;
+        right: 600px; }
+    #yuzawa .img01 {
+      width: 476px;
+      height: 523px;
+      position: absolute;
+      bottom: 140px;
+      left: 650px;
+      z-index: 110; }
+      #yuzawa .img01 img {
+        width: 100%; }
+
+  #sponsor {
+    margin-top: -250px;
+    padding: 0px 0;
+    color: #fff;
+    position: relative; }
+    #sponsor:before {
+      content: '';
+      display: block;
+      width: 320px;
+      height: 111px;
+      background-image: url(../img/kv-kumo01.png);
+      background-size: contain;
+      position: absolute;
+      bottom: 400px;
+      left: -90px;
+      z-index: 100; }
+    #sponsor:after {
+      content: '';
+      display: block;
+      width: 390px;
+      height: 90px;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: auto;
+      bottom: 100px;
+      right: -150px;
+      z-index: 100; }
+    #sponsor .inner {
+      padding-top: 100px;
+      padding-bottom: 60px;
+      background: url("../img/sponsor-bg@sp.jpg") repeat-y;
+      background-size: 100% auto;
+      -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); }
+      #sponsor .inner h2 {
+        color: #fff;
+        margin-bottom: 60px; }
+    #sponsor .mainlead {
+      width: 960px;
+      margin: 0 auto; }
+    #sponsor ul.supporterlist {
+      width: 700px;
+      margin: 60px auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; }
+      #sponsor ul.supporterlist li {
+        list-style: none;
+        margin-bottom: 20px;
+        width: 340px; }
+        #sponsor ul.supporterlist li a {
+          display: block; }
+          #sponsor ul.supporterlist li a img {
+            width: 100%; } }
+@media screen and (min-width: 1200px) {
+  /***************************
+  
+    PC - vw
+  
+  *****************************/
+  /* Style adjustments for viewports that meet the condition */
+  .sp-item {
+    display: none; }
+
+  .pc-item {
+    display: block; }
+
+  .wrapper {
+    width: 100%; }
+
+  .rightmenu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200; }
+    .rightmenu .mainnav {
+      color: #fff;
+      padding: 0;
+      margin: -15vw 0 0 -24.167vw;
+      position: absolute;
+      top: 50%;
+      left: 50%; }
+      .rightmenu .mainnav li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        letter-spacing: 1.25vw;
+        font-size: 2.5vw;
+        line-height: 8.333vw; }
+        .rightmenu .mainnav li a {
+          display: block;
+          text-decoration: none;
+          color: #fff; }
+
+  /* チェックボックスを非表示にする */
+  .drawer_hidden {
+    display: none; }
+
+  /* ハンバーガーアイコンの設置スペース */
+  .drawer_open {
+    display: flex;
+    width: 4.833vw;
+    height: 4.167vw;
+    top: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 510;
+    /* 重なり順を一番上にする */
+    cursor: pointer; }
+
+  /* ハンバーガーメニューのアイコン */
+  .drawer_open span,
+  .drawer_open span:before,
+  .drawer_open span:after {
+    content: '';
+    display: block;
+    height: 0.167vw;
+    width: 2.333vw;
+    border-radius: 0.167vw;
+    background: #fff;
+    transition: 0.5s;
+    position: absolute; }
+
+  /* 三本線の一番上の棒の位置調整 */
+  .drawer_open span:before {
+    bottom: 0.417vw; }
+
+  /* 三本線の一番下の棒の位置調整 */
+  .drawer_open span:after {
+    top: 0.417vw; }
+
+  /* アイコンがクリックされたら真ん中の線を透明にする */
+  #drawer_input:checked ~ .drawer_open span {
+    background: rgba(255, 255, 255, 0); }
+
+  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+  #drawer_input:checked ~ .drawer_open span::before {
+    bottom: 0;
+    transform: rotate(45deg); }
+
+  #drawer_input:checked ~ .drawer_open span::after {
+    top: 0;
+    transform: rotate(-45deg); }
+
+  /* メニューのデザイン*/
+  .nav_content_bg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #1D77E2;
+    transition: 0.5s;
+    opacity: 0;
+    display: none; }
+
+  /* メニュー黒ポチを消す */
+  .nav_list {
+    list-style: none;
+    font-size: 30px;
+    line-height: 3;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.4em; }
+    .nav_list li {
+      text-align: center; }
+      .nav_list li a {
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer; }
+      .nav_list li a:hover {
+        opacity: .5;
+        transition: .5s; }
+
+  /* アイコンがクリックされたらメニューを表示 */
+  #drawer_input:checked ~ .nav_content_bg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: block;
+    opacity: 1;
+    transition: 0.5s;
+    animation: fadeIn 0.5s ease-in 0s forwards; }
+
+  .nav_content {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 449; }
+
+  #drawer_input:checked ~ .nav_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    opacity: 1;
+    transition: 0.5s;
+    z-index: 449;
+    animation: fadeIn 0.5s ease-in 0s forwards; }
+
+  @keyframes fadeIn {
+    0% {
+      display: none;
+      opacity: 0; }
+    1% {
+      display: block;
+      opacity: 0; }
+    100% {
+      display: block;
+      opacity: 1; } }
+  /* ここまで */
+  #header {
+    display: block;
+    width: 100%;
+    height: 5.5vw;
+    position: relative;
+    background-color: #a42e4e; }
+    #header .logo {
+      width: 20.833vw;
+      height: 5.5vw;
+      background-color: #000;
+      position: absolute;
+      top: 0vw;
+      left: 0vw;
+      z-index: 100;
+      margin: 0;
+      padding: 0;
+      font-size: 0.083vw; }
+      #header .logo img {
+        width: 100%; }
+    #header ul.mainnav {
+      display: block;
+      position: absolute;
+      top: 2vw;
+      left: 25vw;
+      width: auto;
+      z-index: 1100;
+      display: flex; }
+      #header ul.mainnav li {
+        list-style: none;
+        color: #fff;
+        font-size: 1.333vw;
+        font-weight: 700;
+        padding: 0;
+        margin-right: 4.167vw;
+        line-height: 1;
+        letter-spacing: 0.25vw;
+        position: relative; }
+        #header ul.mainnav li:after {
+          content: '';
+          background-image: url("../img/head-list.png");
+          background-size: cover;
+          width: 1.75vw;
+          height: 1.083vw;
+          position: absolute;
+          top: 0.25vw;
+          left: -2.167vw; }
+
+  #kv {
+    height: 45.833vw;
+    background-image: url("../img/kv-bg@pc.jpg");
+    background-position: center top;
+    background-size: cover;
+    position: relative;
+    overflow: hidden; }
+    #kv h1 {
+      text-indent: -833.25vw;
+      width: 13.083vw;
+      height: 39.25vw;
+      background: url("../img/kv-logos.png");
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      position: absolute;
+      top: 2.083vw;
+      left: 8.917vw; }
+    #kv .mark {
+      width: 39.667vw;
+      height: 40.167vw;
+      position: absolute;
+      top: 2.583vw;
+      left: 29.75vw;
+      position: relative;
+      z-index: 100; }
+      #kv .mark:before {
+        content: '';
+        display: block;
+        width: 26.667vw;
+        height: 9.25vw;
+        background-image: url(../img/kv-kumo01.png);
+        background-size: contain;
+        position: absolute;
+        bottom: 1.667vw;
+        left: -12.5vw;
+        z-index: -10; }
+      #kv .mark:after {
+        content: '';
+        display: block;
+        width: 32.5vw;
+        height: 6.167vw;
+        background-image: url(../img/kv-kumo02.png);
+        background-size: contain;
+        position: absolute;
+        top: 2.5vw;
+        left: 20.833vw;
+        z-index: 150; }
+      #kv .mark img {
+        width: 100%; }
+    #kv .badge {
+      width: 17.667vw;
+      height: 17.667vw;
+      position: absolute;
+      z-index: 160;
+      top: 26.667vw;
+      right: 23.917vw; }
+      #kv .badge img {
+        width: 100%; }
+    #kv .catch {
+      position: absolute;
+      bottom: auto;
+      top: 3.667vw;
+      left: 78.917vw;
+      font-size: 1.583vw;
+      font-weight: 700;
+      letter-spacing: 0.667vw;
+      -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+      z-index: 1200; }
+      #kv .catch span {
+        background-color: #000;
+        padding: 0.833vw 0.5vw;
+        margin-bottom: 0vw;
+        margin-left: 0.833vw;
+        display: inline-block; }
+
+  .pagetop {
+    position: fixed;
+    bottom: 2.083vw;
+    right: vwx(25); }
+    .pagetop a {
+      display: block;
+      width: 6.667vw;
+      height: 6.667vw;
+      height: auto; }
+      .pagetop a img {
+        width: 100%; }
+
+  #footer {
+    position: relative;
+    background-color: #000;
+    padding: 2.917vw 0;
+    height: auto;
+    font-family: "Hiragino Kaku Gothic Pro", sans-serif;
+    color: #fff; }
+    #footer .wrap {
+      padding: 0 3.333vw; }
+      #footer .wrap .mainnav {
+        color: #fff;
+        margin-bottom: 2.5vw; }
+        #footer .wrap .mainnav ul {
+          padding: 0;
+          margin: 0;
+          text-align: center;
+          font-size: 0; }
+          #footer .wrap .mainnav ul li {
+            display: inline-block;
+            list-style: none;
+            letter-spacing: 0.1em;
+            font-size: 2vw;
+            line-height: 1.8;
+            border-right: 0.083vw solid #fff;
+            padding: 0 0.833vw;
+            margin-bottom: 0.833vw; }
+            #footer .wrap .mainnav ul li:first-child {
+              border-left: 0.083vw solid #fff; }
+            #footer .wrap .mainnav ul li:nth-child(6) {
+              border-left: 0.083vw solid #fff; }
+            #footer .wrap .mainnav ul li a {
+              display: block;
+              text-decoration: none;
+              color: #fff; }
+      #footer .wrap .f-name {
+        font-family: "Noto Serif JP", serif;
+        font-size: 1.333vw;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        margin-bottom: 2.083vw;
+        text-align: center; }
+      #footer .wrap .f-info {
+        margin-bottom: 2.5vw;
+        text-align: center; }
+        #footer .wrap .f-info .address {
+          font-size: 1.167vw; }
+      #footer .wrap .copyright {
+        font-size: 1vw;
+        text-align: center; }
+
+  main {
+    min-width: auto;
+    background: url("../img/main-bg@pc.jpg") repeat-y;
+    background-size: 100% auto;
+    overflow: hidden; }
+
+  section {
+    padding: 5vw 0 2.5vw;
+    font-size: 1.333vw; }
+    section .inner {
+      z-index: 10;
+      position: relative;
+      padding: 0 3.333vw; }
+    section h2 {
+      font-size: 3.333vw;
+      font-weight: 700;
+      letter-spacing: 0.833vw;
+      text-align: center;
+      color: #000;
+      margin: 0 0 2.5vw 0;
+      padding: 0;
+      line-height: 1; }
+
+  #tankakai {
+    height: auto;
+    padding-bottom: 5vw;
+    background: url("../img/tankakai-bg@pc.jpg") no-repeat top center;
+    background-size: cover;
+    position: relative; }
+    #tankakai ul {
+      width: 58.333vw;
+      margin: 0 auto; }
+      #tankakai ul li {
+        list-style: none; }
+        #tankakai ul li a img {
+          width: 100%; }
+
+  #information {
+    position: relative;
+    padding: 5vw 0 5vw 0; }
+    #information .inner dl {
+      width: 80vw;
+      margin: 0 auto;
+      position: relative;
+      z-index: 110;
+      display: flex;
+      flex-wrap: wrap; }
+      #information .inner dl dt {
+        font-size: 1.333vw;
+        font-weight: 700;
+        width: 15%; }
+      #information .inner dl dd {
+        margin-bottom: 1.333vw;
+        width: 85%; }
+        #information .inner dl dd:last-child {
+          margin-bottom: 0vw; }
+    #information:before {
+      content: '';
+      display: block;
+      width: 26.667vw;
+      height: 9.25vw;
+      background-image: url(../img/kv-kumo01.png);
+      background-size: contain;
+      position: absolute;
+      bottom: -3.333vw;
+      left: -6.667vw; }
+    #information:after {
+      content: '';
+      display: block;
+      width: 32.5vw;
+      height: 6.167vw;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: 2.5vw;
+      right: -6.667vw; }
+
+  #about {
+    padding: 0vw 0;
+    color: #fff;
+    position: relative; }
+    #about:before {
+      content: '';
+      display: block;
+      width: 26.667vw;
+      height: 9.25vw;
+      background-image: url(../img/kv-kumo01.png);
+      background-size: contain;
+      position: absolute;
+      bottom: 10vw;
+      left: 19.167vw;
+      z-index: 100; }
+    #about:after {
+      content: '';
+      display: block;
+      width: 32.5vw;
+      height: 7.5vw;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: 5.833vw;
+      right: -13.333vw;
+      z-index: 100; }
+    #about .inner {
+      height: 53.333vw;
+      padding-top: 0vw;
+      padding-bottom: 0vw;
+      background: url("../img/about-bg@pc.jpg") repeat-y;
+      -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      background-size: 100% auto;
+      position: relative; }
+      #about .inner h2 {
+        color: #fff;
+        margin-bottom: 3.333vw;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        position: absolute;
+        top: 10vw;
+        right: 13.333vw; }
+      #about .inner p.mainlead {
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        letter-spacing: 0.667vw;
+        line-height: 2;
+        max-height: 35.833vw;
+        position: absolute;
+        top: 10vw;
+        right: 22.5vw; }
+    #about .img01 {
+      width: 37vw;
+      height: 43.167vw;
+      position: absolute;
+      bottom: 7.5vw;
+      left: 4.167vw;
+      z-index: 110; }
+      #about .img01 img {
+        width: 100%; }
+
+  #yuzawa {
+    margin-top: -11.667vw;
+    padding: 0vw 0;
+    color: #fff;
+    position: relative; }
+    #yuzawa:before {
+      content: '';
+      display: block;
+      width: 26.667vw;
+      height: 9.25vw;
+      background-image: url(../img/kv-kumo01.png);
+      background-size: contain;
+      position: absolute;
+      bottom: 12.5vw;
+      left: 2.5vw;
+      z-index: 100; }
+    #yuzawa:after {
+      content: '';
+      display: block;
+      width: 32.5vw;
+      height: 7.5vw;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: 13.333vw;
+      right: -10vw;
+      z-index: 100; }
+    #yuzawa .inner {
+      padding-top: 20vw;
+      padding-bottom: 49.167vw;
+      background: url("../img/yuzawa-bg@pc.jpg") repeat-y;
+      background-size: 100%;
+      -webkit-clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%);
+      clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%); }
+      #yuzawa .inner h2 {
+        color: #fff;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        position: absolute;
+        top: 8.333vw;
+        left: 16.667vw; }
+      #yuzawa .inner p.mainlead {
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+        letter-spacing: 0.667vw;
+        line-height: 2;
+        max-height: 35.833vw;
+        position: absolute;
+        top: 12.5vw;
+        right: 50vw; }
+    #yuzawa .img01 {
+      width: 39.667vw;
+      height: 43.583vw;
+      position: absolute;
+      bottom: 11.667vw;
+      left: 54.167vw;
+      z-index: 110; }
+      #yuzawa .img01 img {
+        width: 100%; }
+
+  #sponsor {
+    margin-top: -20.833vw;
+    padding: 0vw 0;
+    color: #fff;
+    position: relative; }
+    #sponsor:before {
+      content: '';
+      display: block;
+      width: 32.5vw;
+      height: 7.5vw;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      bottom: 37.5vw;
+      left: -14.167vw;
+      z-index: 100; }
+    #sponsor:after {
+      content: '';
+      display: block;
+      width: 32.5vw;
+      height: 7.5vw;
+      background-image: url(../img/kv-kumo02.png);
+      background-size: contain;
+      position: absolute;
+      top: auto;
+      bottom: 8.333vw;
+      right: -12.5vw;
+      z-index: 100; }
+    #sponsor .inner {
+      padding-top: 8.333vw;
+      padding-bottom: 5vw;
+      background: url("../img/sponsor-bg@sp.jpg") repeat-y;
+      background-size: 100% auto;
+      -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%);
+      clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); }
+      #sponsor .inner h2 {
+        color: #fff;
+        margin-bottom: 5vw; }
+    #sponsor .mainlead {
+      width: 80vw;
+      margin: 0 auto; }
+    #sponsor ul.supporterlist {
+      width: 58.333vw;
+      margin: 5vw auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap; }
+      #sponsor ul.supporterlist li {
+        list-style: none;
+        margin-bottom: 1.667vw;
+        width: 28.333vw; }
+        #sponsor ul.supporterlist li a {
+          display: block; }
+          #sponsor ul.supporterlist li a img {
+            width: 100%; } }
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */ }
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important; }
+
+  a,
+  a:visited {
+    text-decoration: underline; }
+
+  a[href]::after {
+    content: " (" attr(href) ")"; }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")"; }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: ""; }
+
+  pre {
+    white-space: pre-wrap !important; }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group; }
+
+  tr,
+  img {
+    page-break-inside: avoid; }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2,
+  h3 {
+    page-break-after: avoid; } }
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.clearfix:before {
+  content: "";
+  display: block;
+  clear: both; }
+
+.clearfix {
+  display: block; }

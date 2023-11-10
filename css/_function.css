@@ -1,0 +1,138 @@
+@keyframes hovermenuout {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(101%);
+    opacity: 1;
+  }
+}
+@keyframes hoverin {
+  0% {
+    transform: translateX(-101%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes hoverout {
+  0% {
+    transform: translateY(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    left: 101%;
+    opacity: 1;
+  }
+}
+@keyframes hoverin_reverse {
+  0% {
+    transform: translateX(101%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes hoverout_reverse {
+  0% {
+    transform: translateY(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    left: -101%;
+    opacity: 1;
+  }
+}
+@keyframes vin {
+  0% {
+    transform: translateY(-101%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes vout {
+  0% {
+    transform: translateY(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(101%);
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes vin_reverse {
+  0% {
+    transform: translateY(101%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes vout_reverse {
+  0% {
+    transform: translateY(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-101%);
+    left: 0;
+    opacity: 1;
+  }
+}
+.buruburu {
+  display: inline-block;
+  animation: hurueru 0.1s infinite;
+}
+
+@keyframes hurueru {
+  0% {
+    transform: translate(0px, 0px) rotateZ(0deg);
+  }
+  25% {
+    transform: translate(2px, 2px) rotateZ(1deg);
+  }
+  50% {
+    transform: translate(0px, 2px) rotateZ(0deg);
+  }
+  75% {
+    transform: translate(2px, 0px) rotateZ(-1deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotateZ(0deg);
+  }
+}
+@keyframes wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: round-decimal(8.3333333333vw, 3) 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  @keyframes wave {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100px 0;
+    }
+  }
+}/*# sourceMappingURL=_function.css.map */
